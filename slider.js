@@ -103,6 +103,7 @@ var dragAndDrop = function() {
 
         document.onmousemove = function(e) {
             moveAt(e);
+            counting();
         };
 
         element.onmouseup = function() {
@@ -116,10 +117,23 @@ var dragAndDrop = function() {
     };
 }
 
+var counting = function() {
+    var area = document.getElementById('sliderCircle'),
+        elArea = document.getElementById('total__area'),
+        rtArea = Number.parseInt(window.getComputedStyle(area).getPropertyValue('left'));
+
+    rtArea = Math.floor(rtArea/2);
+
+    elArea.textContent = rtArea;
+
+    //6px - 342px
+}
+
 resolvePixelRatio('sliderCircle', funcCircle);
 resolvePixelRatio('sliderLine', funcLine);
 
 dragAndDrop();
+counting();
 
 
 
