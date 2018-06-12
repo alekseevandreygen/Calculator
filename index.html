@@ -80,6 +80,9 @@
             font-size: 45px;
             font-weight: 500;
         }
+        .total__rooms {
+            font-size: 35px;
+        }
     </style>
 </head>
 <body>
@@ -95,60 +98,62 @@
         </section>
 
         <section class="select">
-            <p class="total">35</p>
-            <select placeholder="Дерево">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+            <p class="total" id="total__rooms">4</p>
+            <select id="selects" onChange="counting()">
+                <option value="1" onclick="counting()">1</option>
+                <option value="2" onclick="counting()">2</option>
+                <option value="3" onclick="counting()">3</option>
+                <option value="4" onclick="counting()">4</option>
+                <option value="5" onclick="counting()">5</option>
             </select>
             <p>Количество комнат</p>
         </section>
 
         <section class="checkbox">
             <p class="checkboxItem header">Дополнительные опции</p>
-        
-            <div class="checkboxItem">
-                <input type="checkbox" id="stowage" name="interest" value="stowage">
-                <label for="stowage">Укладка ламината</label>
-            </div>
-            <div class="checkboxItem">
-                <input type="checkbox" id="warmFloor" name="interest" value="warmFloor">
-                <label for="warmFloor">Устройство теплого пола</label>
-            </div>
-        
-            <div class="checkboxItem">
-                <input type="checkbox" id="innerWalls" name="interest" value="innerWalls">
-                <label for="innerWalls">Возведение внутренних стен</label>
-            </div>
-            <div class="checkboxItem">
-                <input type="checkbox" id="paint" name="interest" value="paint">
-                <label for="paint">Окраска стен</label>
-            </div>
-        
-            <div class="checkboxItem">
-                <input type="checkbox" id="doors" name="interest" value="doors">
-                <label for="doors">Межкомнатные двери и плинтус</label>
-            </div>
-            <div class="checkboxItem">
-                <input type="checkbox" id="garbage" name="interest" value="garbage">
-                <label for="garbage">Вывоз мусора</label>
-            </div>
-        
-            <div class="checkboxItem">
-                <input type="checkbox" id="ceilor" name="interest" value="ceilor">
-                <label for="ceilor">Натяжные потолки в санузлах</label>
-            </div>
-            <div class="checkboxItem">
-                <input type="checkbox" id="putty" name="interest" value="putty">
-                <label for="putty">Шпатлевка, грунтовка </label>
+            
+            <div id="checkboxes" onClick="counting()">
+                <div class="checkboxItem">
+                    <input type="checkbox" id="stowage" name="interest" value="stowage">
+                    <label for="stowage">Укладка ламината</label>
+                </div>
+                <div class="checkboxItem">
+                    <input type="checkbox" id="warmFloor" name="interest" value="warmFloor">
+                    <label for="warmFloor">Устройство теплого пола</label>
+                </div>
+            
+                <div class="checkboxItem">
+                    <input type="checkbox" id="innerWalls" name="interest" value="innerWalls">
+                    <label for="innerWalls">Возведение внутренних стен</label>
+                </div>
+                <div class="checkboxItem">
+                    <input type="checkbox" id="paint" name="interest" value="paint">
+                    <label for="paint">Окраска стен</label>
+                </div>
+            
+                <div class="checkboxItem">
+                    <input type="checkbox" id="doors" name="interest" value="doors">
+                    <label for="doors">Межкомнатные двери и плинтус</label>
+                </div>
+                <div class="checkboxItem">
+                    <input type="checkbox" id="garbage" name="interest" value="garbage">
+                    <label for="garbage">Вывоз мусора</label>
+                </div>
+            
+                <div class="checkboxItem">
+                    <input type="checkbox" id="ceilor" name="interest" value="ceilor">
+                    <label for="ceilor">Натяжные потолки в санузлах</label>
+                </div>
+                <div class="checkboxItem">
+                    <input type="checkbox" id="putty" name="interest" value="putty">
+                    <label for="putty">Шпатлевка, грунтовка </label>
+                </div>
             </div>
         
         </section>
 
         <section class="commonPrice">
-            <em class="total">35 000</em>
+            <em class="total" id="total__count">0</em>
             <p>Итоговая сумма, руб</p>
         </section>
     </div>

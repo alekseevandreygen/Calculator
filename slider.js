@@ -120,20 +120,70 @@ var dragAndDrop = function() {
 var counting = function() {
     var area = document.getElementById('sliderCircle'),
         elArea = document.getElementById('total__area'),
-        rtArea = Number.parseInt(window.getComputedStyle(area).getPropertyValue('left'));
+        rtArea = Number.parseInt(window.getComputedStyle(area).getPropertyValue('left')),
+        select = document.getElementById('selects'),
+        elSelectAc = select && select.options[select.selectedIndex].value,
+        elRooms = document.getElementById('total__rooms'),
 
+        stowage = document.getElementById("warmFloor") && document.getElementById("stowage").checked,
+        warmFloor = document.getElementById("warmFloor") && document.getElementById("warmFloor").checked,
+        innerWalls = document.getElementById("innerWalls") && document.getElementById("innerWalls").checked,
+        paint = document.getElementById("paint") && document.getElementById("paint").checked,
+        doors = document.getElementById("doors") && document.getElementById("doors").checked,
+        garbage = document.getElementById("garbage") && document.getElementById("garbage").checked,
+        ceilor = document.getElementById("ceilor") && document.getElementById("ceilor").checked,
+        putty = document.getElementById("putty") && document.getElementById("putty").checked,
+
+
+        elTotalCount = document.getElementById('total__count'),
+        rtTotalCount = function() {
+            result = 0;
+            result = rtArea * 1000 + elSelectAc * 4000;
+            if (stowage) {
+                result = result + 1000;
+            }
+            if (warmFloor) {
+                result = result + 2000;
+            }
+            if (innerWalls) {
+                result = result + 3000;
+            }
+            if (paint) {
+                result = result + 3000;
+            }
+            if (doors) {
+                result = result + 3000;
+            }
+            if (garbage) {
+                result = result + 3000;
+            }
+            if (ceilor) {
+                result = result + 3000;
+            }
+            if (putty) {
+                result = result + 3000;
+            }
+            return result
+        };
+
+     
     rtArea = Math.floor(rtArea/2);
-
-    elArea.textContent = rtArea;
-
-    //6px - 342px
+    if (elArea) {
+        elArea.textContent = rtArea;
+    }
+    if (elRooms) {
+        elRooms.textContent = elSelectAc;
+    }
+    if (elTotalCount) {
+        elTotalCount.textContent = rtTotalCount();
+    }
+    
 }
 
 resolvePixelRatio('sliderCircle', funcCircle);
 resolvePixelRatio('sliderLine', funcLine);
 
 dragAndDrop();
-counting();
 
 
 
