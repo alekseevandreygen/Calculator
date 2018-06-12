@@ -91,9 +91,9 @@ var dragAndDrop = function() {
         var startPoint = window.getComputedStyle(element).getPropertyValue('left'),
             shiftX = e.pageX - Number.parseInt(startPoint),
             moveAt = function (e) {
-                if (e.pageX < 54) {
+                if (e.pageX < 146) {
                     element.style.left = '5' + 'px';
-                } else if (e.pageX > 357) {
+                } else if (e.pageX > 470) {
                     element.style.left = '342' + 'px';
                 } else {
                     element.style.left = e.pageX - shiftX + 'px';
@@ -118,6 +118,7 @@ var dragAndDrop = function() {
 
 resolvePixelRatio('sliderCircle', funcCircle);
 resolvePixelRatio('sliderLine', funcLine);
+
 dragAndDrop();
 
 

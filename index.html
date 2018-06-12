@@ -26,12 +26,14 @@
             box-sizing: border-box;
             flex: 1 450px;
             max-width: 450px;
+            margin: 0 auto;
         }
         .select {
             position: relative;
             box-sizing: border-box;
             flex: 1 450px;
             max-width: 450px; 
+            margin: 0 auto;
         }
         #sliderCircle {
             cursor: pointer;
@@ -39,25 +41,115 @@
         }
         canvas {
             width: 100%;
-            height: 100px;
+            height: 50px;
+        }
+        select {
+            margin: 15px 0 25px 0;  
+            width: 300px;
+        }
+        .total {
+            font-size: 35px;
+        }
+        .checkbox {
+            margin: inherit;
+            text-align: left;
+            position: relative;
+            box-sizing: border-box;
+            flex: 1 450px;
+            max-width: 450px; 
+        }
+        .checkboxItem {
+            margin: 10px 0 10px 70px;
+        }
+        .checkboxItem.header {
+            margin: 30px auto 30px auto;
+            text-align: center;
+            font-size: 35px;
+        }
+        .checkboxItem input {
+            cursor: pointer;
+        }
+        .commonPrice {
+            position: relative;
+            box-sizing: border-box;
+            flex: 1 450px;
+            max-width: 450px; 
+            margin: 120px auto 0 auto;
+        }
+        .commonPrice .total {
+            font-size: 45px;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <section class="slider">
-            <p>Количество комнат</p>
+            <p class="total">35</p>
             <canvas id="sliderCircle">
             </canvas>
             <canvas id="sliderLine">
             </canvas>
             <script type="text/javascript" src="slider.js"></script>
+            <p>Площадь квартиры, м2</p>
         </section>
 
         <section class="select">
-            <select>
-
+            <p class="total">35</p>
+            <select placeholder="Дерево">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
             </select>
+            <p>Количество комнат</p>
+        </section>
+
+        <section class="checkbox">
+            <p class="checkboxItem header">Дополнительные опции</p>
+        
+            <div class="checkboxItem">
+                <input type="checkbox" id="stowage" name="interest" value="stowage">
+                <label for="stowage">Укладка ламината</label>
+            </div>
+            <div class="checkboxItem">
+                <input type="checkbox" id="warmFloor" name="interest" value="warmFloor">
+                <label for="warmFloor">Устройство теплого пола</label>
+            </div>
+        
+            <div class="checkboxItem">
+                <input type="checkbox" id="innerWalls" name="interest" value="innerWalls">
+                <label for="innerWalls">Возведение внутренних стен</label>
+            </div>
+            <div class="checkboxItem">
+                <input type="checkbox" id="paint" name="interest" value="paint">
+                <label for="paint">Окраска стен</label>
+            </div>
+        
+            <div class="checkboxItem">
+                <input type="checkbox" id="doors" name="interest" value="doors">
+                <label for="doors">Межкомнатные двери и плинтус</label>
+            </div>
+            <div class="checkboxItem">
+                <input type="checkbox" id="garbage" name="interest" value="garbage">
+                <label for="garbage">Вывоз мусора</label>
+            </div>
+        
+            <div class="checkboxItem">
+                <input type="checkbox" id="ceilor" name="interest" value="ceilor">
+                <label for="ceilor">Натяжные потолки в санузлах</label>
+            </div>
+            <div class="checkboxItem">
+                <input type="checkbox" id="putty" name="interest" value="putty">
+                <label for="putty">Шпатлевка, грунтовка </label>
+            </div>
+        
+        </section>
+
+        <section class="commonPrice">
+            <p class="total">35 000</p>
+            <p>Итоговая сумма, руб</p>
         </section>
     </div>
 </body>
