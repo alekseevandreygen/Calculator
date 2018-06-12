@@ -65,7 +65,7 @@ var funcCircle = function(ctx) {
     //Draw the circle
     ctx.fillStyle = '#D8EEF3';
     ctx.beginPath();
-    ctx.arc(700, 100, 15, 0, 2 * Math.PI);
+    ctx.arc(100, 50, 15, 0, 2 * Math.PI);
     ctx.closePath();
     ctx.fill();
     ctx.lineWidth = 2;
@@ -73,45 +73,45 @@ var funcCircle = function(ctx) {
     ctx.stroke();
 }
 
-var funcLine = function (ctx) {
+var funcLine = function(ctx) {
     //Draw the line
     ctx.beginPath();
-    ctx.moveTo(700, 100);
-    ctx.lineTo(1100, 100);
+    ctx.moveTo(100, 50);
+    ctx.lineTo(800, 50);
     ctx.closePath();
     ctx.lineWidth = 2;
     ctx.strokeStyle = '#B2DDE6';
     ctx.stroke();
 };
 
-var dragAndDrop = function () {
+var dragAndDrop = function() {
     var element = document.getElementById('sliderCircle');
 
-    element.onmousedown = function (e) {
+    element.onmousedown = function(e) {
         var startPoint = window.getComputedStyle(element).getPropertyValue('left'),
             shiftX = e.pageX - Number.parseInt(startPoint),
             moveAt = function (e) {
-                if (e.pageX < 352) {
-                    element.style.left = Number.parseInt(startPoint) + 'px';
-                } else if (e.pageX > 544) {
-                    element.style.left = '192' + 'px';
+                if (e.pageX < 54) {
+                    element.style.left = '5' + 'px';
+                } else if (e.pageX > 357) {
+                    element.style.left = '342' + 'px';
                 } else {
                     element.style.left = e.pageX - shiftX + 'px';
                 }
             };
         moveAt(e);
 
-        document.onmousemove = function (e) {
+        document.onmousemove = function(e) {
             moveAt(e);
         };
 
-        element.onmouseup = function () {
+        element.onmouseup = function() {
             document.onmousemove = null;
             element.onmouseup = null;
         };
     };
 
-    element.ondragstart = function () {
+    element.ondragstart = function() {
         return false;
     };
 }
