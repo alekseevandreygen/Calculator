@@ -87,6 +87,7 @@ var funcLine = function(ctx) {
 var dragAndDrop = function() {
     var element = document.getElementById('sliderCircle');
 
+    //click section
     element.onmousedown = function(e) {
         var startPoint = window.getComputedStyle(element).getPropertyValue('left'),
             shiftX = e.pageX - Number.parseInt(startPoint),
@@ -115,6 +116,7 @@ var dragAndDrop = function() {
     element.ondragstart = function() {
         return false;
     };
+
 }
 
 var counting = function() {
@@ -125,43 +127,133 @@ var counting = function() {
         elSelectAc = select && select.options[select.selectedIndex].value,
         elRooms = document.getElementById('total__rooms'),
 
-        stowage = document.getElementById("warmFloor") && document.getElementById("stowage").checked,
-        warmFloor = document.getElementById("warmFloor") && document.getElementById("warmFloor").checked,
-        innerWalls = document.getElementById("innerWalls") && document.getElementById("innerWalls").checked,
-        paint = document.getElementById("paint") && document.getElementById("paint").checked,
-        doors = document.getElementById("doors") && document.getElementById("doors").checked,
-        garbage = document.getElementById("garbage") && document.getElementById("garbage").checked,
-        ceilor = document.getElementById("ceilor") && document.getElementById("ceilor").checked,
-        putty = document.getElementById("putty") && document.getElementById("putty").checked,
+        s1 = document.getElementById("s1") && document.getElementById("s1").checked,
+        s2 = document.getElementById("s2") && document.getElementById("s2").checked,
+        s3 = document.getElementById("s3") && document.getElementById("s3").checked,
+        s4 = document.getElementById("s4") && document.getElementById("s4").checked,
+        s5 = document.getElementById("s5") && document.getElementById("s5").checked,
+        s6 = document.getElementById("s6") && document.getElementById("s6").checked,
+        s7 = document.getElementById("s7") && document.getElementById("s7").checked,
+        s8 = document.getElementById("s8") && document.getElementById("s8").checked,
+        s9 = document.getElementById("s9") && document.getElementById("s9").checked,
+        s10 = document.getElementById("s10") && document.getElementById("s10").checked,
+
+        s11 = document.getElementById("s11") && document.getElementById("s11").checked,
+        s22 = document.getElementById("s22") && document.getElementById("s12").checked,
+        s23 = document.getElementById("s23") && document.getElementById("s23").checked,
+        s24 = document.getElementById("s24") && document.getElementById("s24").checked,
+        s15 = document.getElementById("s15") && document.getElementById("s15").checked,
+        s16 = document.getElementById("s16") && document.getElementById("s16").checked,
+        s18 = document.getElementById("s18") && document.getElementById("s18").checked,
+        s19 = document.getElementById("s19") && document.getElementById("s19").checked,
+        s20 = document.getElementById("s20") && document.getElementById("s20").checked,
+
+        s21 = document.getElementById("s21") && document.getElementById("s21").checked,
+        s22 = document.getElementById("s22") && document.getElementById("s22").checked,
+        s23 = document.getElementById("s23") && document.getElementById("s23").checked,
+        s24 = document.getElementById("s24") && document.getElementById("s24").checked,
+        s25 = document.getElementById("s25") && document.getElementById("s25").checked,
+        s26 = document.getElementById("s26") && document.getElementById("s26").checked,
+        s27 = document.getElementById("s27") && document.getElementById("s27").checked,
+        s28 = document.getElementById("s28") && document.getElementById("s28").checked,
+        s29 = document.getElementById("s29") && document.getElementById("s29").checked,
+        s30 = document.getElementById("s30") && document.getElementById("s30").checked,
 
 
         elTotalCount = document.getElementById('total__count'),
         rtTotalCount = function() {
             result = 0;
             result = rtArea * 1000 + elSelectAc * 4000;
-            if (stowage) {
-                result = result + 1000;
+
+            if (s1) {
+                result = result + 250;
             }
-            if (warmFloor) {
+            if (s2) {
+                result = result + 60;
+            }
+            if (s3) {
+                result = result + 300;
+            }
+            if (s4) {
+                result = result + 150;
+            }
+            if (s5) {
+                result = result + 450;
+            }
+            if (s6) {
+                result = result + 200;
+            }
+            if (s7) {
+                result = result + 200;
+            }
+            if (s8) {
+                result = result + 900;
+            }
+            if (s9) {
+                result = result + 900;
+            }
+            if (s10) {
+                result = result + 300;
+            }
+            if (s11) {
+                result = result + 800;
+            }
+            if (s12) {
+                result = result + 300;
+            }
+            if (s13) {
+                result = result + 1200;
+            }
+            if (s14) {
+                result = result + 650;
+            }
+            if (s15) {
+                result = result + 600;
+            }
+            if (s16) {
+                result = result + 4000;
+            }
+            if (s17) {
+                result = result + 800;
+            }
+            if (s18) {
+                result = result + 400;
+            }
+            if (s19) {
+                result = result + 800;
+            }
+            if (s20) {
                 result = result + 2000;
             }
-            if (innerWalls) {
-                result = result + 3000;
+            if (s21) {
+                result = result + 600;
             }
-            if (paint) {
-                result = result + 3000;
+            if (s22) {
+                result = result + 300;
             }
-            if (doors) {
-                result = result + 3000;
+            if (s23) {
+                result = result + 300;
             }
-            if (garbage) {
-                result = result + 3000;
+            if (s24) {
+                result = result + 250;
             }
-            if (ceilor) {
-                result = result + 3000;
+            if (s25) {
+                result = result + 1300;
             }
-            if (putty) {
-                result = result + 3000;
+            if (s26) {
+                result = result + 90;
+            }
+            if (s27) {
+                result = result + 90;
+            }
+            if (s28) {
+                result = result + 350;
+            }
+            if (s29) {
+                result = result + 90;
+            }
+            if (s30) {
+                result = result + 150;
             }
             return result
         };
