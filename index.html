@@ -13,6 +13,7 @@
             font-family: 'Roboto:300i', sans-serif;
             font-weight: 200;
             font-size: 15px;
+            touch-action: none;
         }
         .container {
             margin: 20px auto;
@@ -26,7 +27,7 @@
             position: relative;
             box-sizing: border-box;
             flex: 1 450px;
-            max-width: 450px;
+            max-width: 45;
             margin: 0 auto;
         }
         .slider__canvas-container {
@@ -35,8 +36,7 @@
         .select {
             position: relative;
             box-sizing: border-box;
-            flex: 1 450px;
-            max-width: 450px; 
+            flex: 1 450px; 
             margin: 0 auto;
         }
         #sliderCircle {
@@ -44,7 +44,7 @@
             position: absolute;
         }
         canvas {
-            width: 100%;
+            width: 300px;
             height: 100px;
         }
         select {
@@ -59,8 +59,7 @@
             text-align: left;
             position: relative;
             box-sizing: border-box;
-            flex: 1 450px;
-            max-width: 450px; 
+            flex: 1 450px; 
         }
         .checkboxItem {
             margin: 10px 0 10px 70px;
@@ -76,8 +75,7 @@
         .commonPrice {
             position: relative;
             box-sizing: border-box;
-            flex: 1 450px;
-            max-width: 450px; 
+            flex: 1 450px; 
             margin: 120px auto 0 auto;
         }
         .commonPrice .total {
@@ -90,17 +88,48 @@
     </style>
 </head>
 <body>
+    <!--
+
+         var funcCircle = function(ctx) { //Draw the circle ctx.fillStyle = '#D8EEF3'; ctx.beginPath(); ctx.arc(100, 50, 15, 0, 2
+        * Math.PI); ctx.closePath(); ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = '#B2DDE6'; ctx.stroke(); } var funcLine = function(ctx)
+        { //Draw the line ctx.beginPath(); ctx.moveTo(100, 50); ctx.lineTo(800, 50); ctx.closePath(); ctx.lineWidth = 2; ctx.strokeStyle
+        = '#B2DDE6'; ctx.stroke(); };
+
+    -->
     <div id="container" class="container">
         <section class="slider">
             <p class="total" id="total__area">35</p>
 
             <div class="slider__canvas-container">
-                <canvas id="sliderCircle" onclick="dragAndDrop()">
-                </canvas>
-                <canvas id="sliderLine">
-                </canvas>
+                <svg 
+                    id="sliderCircle" 
+                    width="50" 
+                    height="50" 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    style="overflow: inherit"
+                >
+                        <circle 
+                            cx="0" 
+                            cy="0" 
+                            r="10"
+                            stroke="#B2DDE6" 
+                            fill="#D8EEF3" 
+                        />
+                </svg>
+
+                <svg 
+                    id="sliderLine" 
+                    width="300" 
+                    height="100" 
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                        <path 
+                            d="M0 0 h300" 
+                            stroke="#B2DDE6"  
+                            stroke-width="2" 
+                        />  
+                </svg>
             </div>
-            <script type="text/javascript" src="slider.js"></script>
             
             <p>Площадь квартиры, м2</p>
         </section>
@@ -540,6 +569,8 @@
             <em class="total" id="total__count">0</em>
             <p>Итоговая сумма, руб</p>
         </section>
+
+        <script type="text/javascript" src="slider.js"></script>
     </div>
 </body>
 </html>

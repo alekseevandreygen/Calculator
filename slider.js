@@ -1,90 +1,4 @@
-var resolvePixelRatio = function(element, func) {
-    function canvas_obj(element) {
-        let returnable = {
-            canvas: element,
-            ctx: element.getContext("2d"),
-            dpi: window.devicePixelRatio
-        };
-        returnable.get = {
-            style: {
-                height() {
-                    return getComputedStyle(element).getPropertyValue("height").slice(0, -2);
-                },
-                width() {
-                    return getComputedStyle(element).getPropertyValue("width").slice(0, -2);
-                }
-            },
-            attr: {
-                height() {
-                    return returnable.element.getAttribute("height");
-                },
-                width() {
-                    return returnable.element.getAttribute("height");
-                }
-            }
-        };
-        returnable.set = {
-            style: {
-                height(ht) {
-                    element.style.height = ht + "px";
-                },
-                width(wth) {
-                    element.style.width = wth + "px";
-                }
-            },
-            attr: {
-                height(ht) {
-                    element.setAttribute("height", ht);
-                },
-                width(wth) {
-                    element.setAttribute("width", wth);
-                }
-            }
-        };
-        return returnable;
-    }
-    let canvas = canvas_obj(document.getElementById(element));
-    let { ctx, dpi, set, get } = canvas;
-
-    requestAnimationFrame(animate);
-
-    function dpi_adjust() {
-        set.attr.height(get.style.height() * dpi);
-        set.attr.width(get.style.width() * dpi);
-    }
-    function animate() {
-        dpi_adjust();
-
-        func(ctx);
-
-        requestAnimationFrame(animate);
-    }
-}
-
-var funcCircle = function(ctx) {
-    //Draw the circle
-    ctx.fillStyle = '#D8EEF3';
-    ctx.beginPath();
-    ctx.arc(100, 50, 15, 0, 2 * Math.PI);
-    ctx.closePath();
-    ctx.fill();
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = '#B2DDE6';
-    ctx.stroke();
-}
-
-var funcLine = function(ctx) {
-    //Draw the line
-    ctx.beginPath();
-    ctx.moveTo(100, 50);
-    ctx.lineTo(800, 50);
-    ctx.closePath();
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = '#B2DDE6';
-    ctx.stroke();
-};
-
-var dragAndDrop = function() {
+var dragAndDrop = function(e) {
     var element = document.getElementById('sliderCircle');
 
     //click section
@@ -92,10 +6,10 @@ var dragAndDrop = function() {
         var startPoint = window.getComputedStyle(element).getPropertyValue('left'),
             shiftX = e.pageX - Number.parseInt(startPoint),
             moveAt = function (e) {
-                if (e.pageX < 146) {
-                    element.style.left = '5' + 'px';
-                } else if (e.pageX > 470) {
-                    element.style.left = '342' + 'px';
+                if (e.pageX < 50) {
+                    element.style.left = '50' + 'px';
+                } else if (e.pageX > 330) {
+                    element.style.left = '330' + 'px';
                 } else {
                     element.style.left = e.pageX - shiftX + 'px';
                 }
@@ -116,6 +30,38 @@ var dragAndDrop = function() {
     element.ondragstart = function() {
         return false;
     };
+
+    element.addEventListener('touchstart', function(e) {
+
+        var startPoint = window.getComputedStyle(element).getPropertyValue('left'),
+            shiftX = e.touches[0].pageX - Number.parseInt(startPoint),
+            moveAt = function (e) {
+                e.preventDefault();
+                if (e.touches[0].pageX < 50) {
+                    element.style.left = '50' + 'px';
+                } else if (e.touches[0].pageX > 330) {
+                    element.style.left = '330' + 'px';
+                } else {
+                    let accessubleDifX = e.touches[0].pageX - shiftX;
+                    
+                    if (accessubleDifX > 50 || accessubleDifX < 330) {
+                        element.style.left = `${accessubleDifX}px`;
+                    }
+                }
+            };
+        moveAt(e);
+
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+            moveAt(e);
+            counting();
+        });
+
+        document.addEventListener('touchend', function () {
+            document.removeEventListener('touchmove', null);
+            element.removeEventListener('touchstart', null);
+        });
+    })
 
 }
 
@@ -510,9 +456,6 @@ var counting = function() {
     }
     
 }
-
-resolvePixelRatio('sliderCircle', funcCircle);
-resolvePixelRatio('sliderLine', funcLine);
 
 dragAndDrop();
 
