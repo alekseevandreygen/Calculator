@@ -1,13 +1,14 @@
 var dragAndDrop = function(e) {
     var element = document.getElementById('sliderCircle');
+    var outerSlider = document.getElementById('outer-slider');
 
     //click section
     element.onmousedown = function(e) {
         var startPoint = window.getComputedStyle(element).getPropertyValue('left'),
             shiftX = e.pageX - Number.parseInt(startPoint),
             moveAt = function (e) {
-                if (e.pageX < 50) {
-                    element.style.left = '50' + 'px';
+                if (e.pageX < 48) {
+                    element.style.left = 48 + 'px';
                 } else if (e.pageX > 330) {
                     element.style.left = '330' + 'px';
                 } else {
@@ -37,31 +38,32 @@ var dragAndDrop = function(e) {
             shiftX = e.touches[0].pageX - Number.parseInt(startPoint),
             moveAt = function (e) {
                 e.preventDefault();
-                if (e.touches[0].pageX < 50) {
-                    element.style.left = '50' + 'px';
+                if (e.touches[0].pageX < 48) {
+                    element.style.left = '48' + 'px';
                 } else if (e.touches[0].pageX > 330) {
                     element.style.left = '330' + 'px';
                 } else {
                     let accessubleDifX = e.touches[0].pageX - shiftX;
                     
-                    if (accessubleDifX > 50 || accessubleDifX < 330) {
+                    if (accessubleDifX > 48 || accessubleDifX < 330) {
                         element.style.left = `${accessubleDifX}px`;
                     }
                 }
             };
         moveAt(e);
 
-        document.addEventListener('touchmove', function (e) {
+        element.addEventListener('touchmove', function (e) {
             e.preventDefault();
             moveAt(e);
             counting();
         });
 
-        document.addEventListener('touchend', function () {
-            document.removeEventListener('touchmove', null);
-            element.removeEventListener('touchstart', null);
+        outerSlider.addEventListener('touchend', function () {
+            e.preventDefault();
+            element.removeEventListener('touchmove', null);
         });
-    })
+
+    });
 
 }
 
@@ -446,7 +448,7 @@ var counting = function() {
      
     rtArea = Math.floor(rtArea/2);
     if (elArea) {
-        elArea.textContent = rtArea;
+        elArea.textContent = rtArea - 24;
     }
     if (elRooms) {
         elRooms.textContent = elSelectAc;

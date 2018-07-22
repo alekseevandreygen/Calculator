@@ -13,7 +13,6 @@
             font-family: 'Roboto:300i', sans-serif;
             font-weight: 200;
             font-size: 15px;
-            touch-action: none;
         }
         .container {
             margin: 20px auto;
@@ -85,26 +84,21 @@
         .total__rooms {
             font-size: 35px;
         }
+        h3 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <!--
-
-         var funcCircle = function(ctx) { //Draw the circle ctx.fillStyle = '#D8EEF3'; ctx.beginPath(); ctx.arc(100, 50, 15, 0, 2
-        * Math.PI); ctx.closePath(); ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = '#B2DDE6'; ctx.stroke(); } var funcLine = function(ctx)
-        { //Draw the line ctx.beginPath(); ctx.moveTo(100, 50); ctx.lineTo(800, 50); ctx.closePath(); ctx.lineWidth = 2; ctx.strokeStyle
-        = '#B2DDE6'; ctx.stroke(); };
-
-    -->
     <div id="container" class="container">
         <section class="slider">
-            <p class="total" id="total__area">35</p>
+            <p class="total" id="total__area">0</p>
 
             <div class="slider__canvas-container">
                 <svg 
                     id="sliderCircle" 
-                    width="50" 
-                    height="50" 
+                    width="20" 
+                    height="20" 
                     xmlns="http://www.w3.org/2000/svg" 
                     style="overflow: inherit"
                 >
@@ -132,443 +126,446 @@
             </div>
             
             <p>Площадь квартиры, м2</p>
+
         </section>
 
-        <section class="select">
-            <p class="total" id="total__rooms">4</p>
-            <select id="selects" onChange="counting()">
-                <option value="1" onclick="counting()">1</option>
-                <option value="2" onclick="counting()">2</option>
-                <option value="3" onclick="counting()">3</option>
-                <option value="4" onclick="counting()">4</option>
-                <option value="5" onclick="counting()">5</option>
-            </select>
-            <p>Количество комнат</p>
-        </section>
-
-        <section class="checkbox">
-            <p class="checkboxItem header">Сантехника</p>
-        
-            <div id="checkboxes" onClick="counting()">
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s1" name="interest" value="s1">
-                    <label for="s1">Демонтаж труб с/у</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s2" name="interest" value="s2">
-                    <label for="s2">Врезка в стояк ГВС,ХВС (сварка)</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s3" name="interest" value="s3">
-                    <label for="s3">Монтаж стояка водоснабжения, отопления ПВХ</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s4" name="interest" value="s4">
-                    <label for="s4">Демонтаж ванны чугун</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s5" name="interest" value="s5">
-                    <label for="s5">Демонтаж ванны акрил</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s6" name="interest" value="s6">
-                    <label for="s6">Демонтаж раковины с тумбой </label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s7" name="interest" value="s7">
-                    <label for="s7">Демонтаж раковины</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s8" name="interest" value="s8">
-                    <label for="s8">Демонтаж унитаза</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s9" name="interest" value="s9">
-                    <label for="s9">Демонтаж смесителя</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s10" name="interest" value="s10">
-                    <label for="s10">Демонтаж радиатора</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s11" name="interest" value="s11">
-                    <label for="s11">Разводка труб гор водоснабжения</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s12" name="interest" value="s12">
-                    <label for="s12">Разводка труб хол  водоснабжения</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s13" name="interest" value="s13">
-                    <label for="s13">Разводка фановых труб</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s14" name="interest" value="s14">
-                    <label for="s14">Устройство штробы под сан тех трубы</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s15" name="interest" value="s15">
-                    <label for="s15">Демонтаж, монтаж радиатора (снять, поставить)</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s16" name="interest" value="s16">
-                    <label for="s16">Монтаж радиатора отопления с кранами</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s17" name="interest" value="s17">
-                    <label for="s17">Монтаж радиатора с байпасом</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s18" name="interest" value="s18">
-                    <label for="s18">Монтаж ванной(стальной/акриловой)</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s19" name="interest" value="s19">
-                    <label for="s19">Монтаж ванной(чугун)</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s20" name="interest" value="s20">
-                    <label for="s20">Монтаж душ кабины (10% от стоимости кабины, не менее 7000)</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s21" name="interest" value="s21">
-                    <label for="s21">Монтаж душевого поддона</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s22" name="interest" value="s22">
-                    <label for="s22">Изготовление душевого поддона</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s23" name="interest" value="s23">
-                    <label for="s23">Облицовка душевого поддона кафельной плиткой (с затиркой)</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s24" name="interest" value="s24">
-                    <label for="s24">Облицовка душевого поддона керамогранитом (с затиркой)</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s25" name="interest" value="s25">
-                    <label for="s25">Облицовка душевого поддона мозайкой (с затиркой)</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s26" name="interest" value="s26">
-                    <label for="s26">Прокладка малоточки ТелефонУстройство подиума для душ кабины</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s27" name="interest" value="s27">
-                    <label for="s27">Монтаж сливного трапа </label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s28" name="interest" value="s28">
-                    <label for="s28">Монтаж экрана ГКЛ с облицовкой кафелем </label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s29" name="interest" value="s29">
-                    <label for="s29">Монтаж полочки ГКЛ с облицовкой (между ванной и стеной)</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s30" name="interest" value="s30">
-                    <label for="s30">Монтаж душевого экрана</label>
-                </div>
-
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s31" name="interest" value="s31">
-                    <label for="s31">Монтаж душевой стойки</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s32" name="interest" value="s32">
-                    <label for="s32">Монтаж душевых створок</label>
-                </div>
-                
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s33" name="interest" value="s33">
-                    <label for="s33">Монтаж душевой панели</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s34" name="interest" value="s34">
-                    <label for="s34">Монтаж унитаза</label>
-                </div>
-                
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s35" name="interest" value="s35">
-                    <label for="s35">Монтаж инсталляции (без унитаза)</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s36" name="interest" value="s36">
-                    <label for="s36">Монтаж раковины</label>
-                </div>
-                
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s37" name="interest" value="s37">
-                    <label for="s37">Монтаж раковины с тумбой </label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s38" name="interest" value="s38">
-                    <label for="s38">Монтаж смесителя</label>
-                </div>
-                
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s39" name="interest" value="s39">
-                    <label for="s39">Монтаж смесителя с душ лейкой</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s40" name="interest" value="s40">
-                    <label for="s40">Демонтаж счётчика учёта воды</label>
-                </div>
-                
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s41" name="interest" value="s41">
-                    <label for="s41">Монтаж счётчика учёта воды</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s42" name="interest" value="s42">
-                    <label for="s42">Монтаж бойлера</label>
-                </div>
-                
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s43" name="interest" value="s43">
-                    <label for="s43">Монтаж гигиенического душа на готовую подводку</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s44" name="interest" value="s44">
-                    <label for="s44">Монтаж фанового насоса</label>
-                </div>
-                
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s45" name="interest" value="s45">
-                    <label for="s45">Демонтаж коллектора</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s46" name="interest" value="s46">
-                    <label for="s46">Монтаж коллектора</label>
-                </div>
-                
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s47" name="interest" value="s47">
-                    <label for="s47">Монтаж обратного клапана</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s48" name="interest" value="s48">
-                    <label for="s48">Монтаж крана отсечки</label>
-                </div>
-                
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s49" name="interest" value="s49">
-                    <label for="s49">Монтаж крана запорного</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s50" name="interest" value="s50">
-                    <label for="s50">Демонтаж   фильтра тон и гр  очистки</label>
-                </div>
-                
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s51" name="interest" value="s51">
-                    <label for="s51">Монтаж фильтра тонкой очистки</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s52" name="interest" value="s52">
-                    <label for="s52">Монтаж фильтра грубой очистки</label>
-                </div>
-
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s53" name="interest" value="s53">
-                    <label for="s53">Монтаж/подключение стиральной машины</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s54" name="interest" value="s54">
-                    <label for="s54">Демонтаж, монтаж полотенцесушителя</label>
-                </div>
-                
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s55" name="interest" value="s55">
-                    <label for="s55">Покраска радиатора</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s56" name="interest" value="s56">
-                    <label for="s56">Шумоизоляция труб</label>
-                </div>
-                
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s57" name="interest" value="s57">
-                    <label for="s57">Покраска труб</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s58" name="interest" value="s58">
-                    <label for="s58">Монтаж  зеркала </label>
-                </div>
-                
-                <div class="checkboxItem">
-                    <input type="checkbox" id="s59" name="interest" value="s59">
-                    <label for="s59">Монтаж мелкой сантехнической фурнитуры</label>
-                </div>
-        
-            </div>
-        
-        </section>
-
-        <section class="checkbox">
-            <p class="checkboxItem header">Электрика</p>
-        
-            <div id="checkboxes" onClick="counting()">
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e1" name="interest" value="e1">
-                    <label for="e1">Демонтаж бра</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e2" name="interest" value="e2">
-                    <label for="warmFloor">Демонтаж точечного светильника</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e3" name="interest" value="e3">
-                    <label for="e3">Демонтаж люстры</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e4" name="interest" value="e4">
-                    <label for="e4">Демонтаж эл.точки снять рамку (розетка,выключатель)</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e5" name="interest" value="e5">
-                    <label for="e5">Устройство гнезда подрозетника</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e6" name="interest" value="e6">
-                    <label for="e6">Монтаж розетки</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e7" name="interest" value="e7">
-                    <label for="e7">Монтаж выключателя</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e8" name="interest" value="e8">
-                    <label for="e8">Монтаж сетевой розетки на эл.плиту</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e9" name="interest" value="e9">
-                    <label for="e9">Монтаж силовой розетки</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e10" name="interest" value="e10">
-                    <label for="e10">Монтаж телефонной/ТВ розетки/Интернет</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e11" name="interest" value="e11">
-                    <label for="e11">Подключение и установка вытяжного вентилятора</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e12" name="interest" value="e12">
-                    <label for="e12">Монтаж бра</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e13" name="interest" value="e13">
-                    <label for="e13">Монтаж люстры</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e14" name="interest" value="e14">
-                    <label for="e14">Монтаж реостата тёплого пола</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e15" name="interest" value="e15">
-                    <label for="e15">Укладка нагревательного элемента тёплого пола</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e16" name="interest" value="e16">
-                    <label for="e16">Устройство гнезда под эл.щиток (в жб стене)</label>
-                </div>
-        
-                <h3>Монтаж щита (составляющие ниже):</h3>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e17" name="interest" value="e17">
-                    <label for="e17">Щит</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e18" name="interest" value="e18">
-                    <label for="e18">Монтаж автомата</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e19" name="interest" value="e19">
-                    <label for="e19">Монтаж дифавтомата или УЗО</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e20" name="interest" value="e20">
-                    <label for="e20">Монтаж счетчика</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e21" name="interest" value="e21">
-                    <label for="e21">Монтаж распределительной коробки</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e22" name="interest" value="e22">
-                    <label for="e22">Подключение трансформатора</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e23" name="interest" value="e23">
-                    <label for="e23">Монтаж светодиодной ленты</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e24" name="interest" value="e24">
-                    <label for="e24">Устройство точечного светильника</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e25" name="interest" value="e25">
-                    <label for="e25">Монтаж электрического полотенцесушителя</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e26" name="interest" value="e26">
-                    <label for="e26">Прокладка малоточки Телефон</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e27" name="interest" value="e27">
-                    <label for="e27">Прокладка малоточки TV Internet</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e28" name="interest" value="e28">
-                    <label for="e28">Устройство штробы (2см*2см)</label>
-                </div>
-        
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e29" name="interest" value="e29">
-                    <label for="e29">Прокладка кабеля</label>
-                </div>
-                <div class="checkboxItem">
-                    <input type="checkbox" id="e30" name="interest" value="e30">
-                    <label for="e30">Прокладка кабеля с монтажем кабель канала</label>
-                </div>
-        
-            </div>
-        
-        </section>
-
-        <section class="commonPrice">
-            <em class="total" id="total__count">0</em>
-            <p>Итоговая сумма, руб</p>
-        </section>
+        <div id="outer-slider">
+            <section class="select">
+                <p class="total" id="total__rooms">4</p>
+                <select id="selects" onChange="counting()">
+                    <option value="1" onclick="counting()">1</option>
+                    <option value="2" onclick="counting()">2</option>
+                    <option value="3" onclick="counting()">3</option>
+                    <option value="4" onclick="counting()">4</option>
+                    <option value="5" onclick="counting()">5</option>
+                </select>
+                <p>Количество комнат</p>
+            </section>
+            
+            <section class="checkbox">
+                <p class="checkboxItem header">Сантехника</p>
+            
+                <div id="checkboxes" onClick="counting()">
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s1" name="interest" value="s1">
+                        <label for="s1">Демонтаж труб с/у</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s2" name="interest" value="s2">
+                        <label for="s2">Врезка в стояк ГВС,ХВС (сварка)</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s3" name="interest" value="s3">
+                        <label for="s3">Монтаж стояка водоснабжения, отопления ПВХ</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s4" name="interest" value="s4">
+                        <label for="s4">Демонтаж ванны чугун</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s5" name="interest" value="s5">
+                        <label for="s5">Демонтаж ванны акрил</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s6" name="interest" value="s6">
+                        <label for="s6">Демонтаж раковины с тумбой </label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s7" name="interest" value="s7">
+                        <label for="s7">Демонтаж раковины</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s8" name="interest" value="s8">
+                        <label for="s8">Демонтаж унитаза</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s9" name="interest" value="s9">
+                        <label for="s9">Демонтаж смесителя</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s10" name="interest" value="s10">
+                        <label for="s10">Демонтаж радиатора</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s11" name="interest" value="s11">
+                        <label for="s11">Разводка труб гор водоснабжения</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s12" name="interest" value="s12">
+                        <label for="s12">Разводка труб хол  водоснабжения</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s13" name="interest" value="s13">
+                        <label for="s13">Разводка фановых труб</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s14" name="interest" value="s14">
+                        <label for="s14">Устройство штробы под сан тех трубы</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s15" name="interest" value="s15">
+                        <label for="s15">Демонтаж, монтаж радиатора (снять, поставить)</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s16" name="interest" value="s16">
+                        <label for="s16">Монтаж радиатора отопления с кранами</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s17" name="interest" value="s17">
+                        <label for="s17">Монтаж радиатора с байпасом</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s18" name="interest" value="s18">
+                        <label for="s18">Монтаж ванной(стальной/акриловой)</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s19" name="interest" value="s19">
+                        <label for="s19">Монтаж ванной(чугун)</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s20" name="interest" value="s20">
+                        <label for="s20">Монтаж душ кабины (10% от стоимости кабины, не менее 7000)</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s21" name="interest" value="s21">
+                        <label for="s21">Монтаж душевого поддона</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s22" name="interest" value="s22">
+                        <label for="s22">Изготовление душевого поддона</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s23" name="interest" value="s23">
+                        <label for="s23">Облицовка душевого поддона кафельной плиткой (с затиркой)</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s24" name="interest" value="s24">
+                        <label for="s24">Облицовка душевого поддона керамогранитом (с затиркой)</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s25" name="interest" value="s25">
+                        <label for="s25">Облицовка душевого поддона мозайкой (с затиркой)</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s26" name="interest" value="s26">
+                        <label for="s26">Прокладка малоточки ТелефонУстройство подиума для душ кабины</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s27" name="interest" value="s27">
+                        <label for="s27">Монтаж сливного трапа </label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s28" name="interest" value="s28">
+                        <label for="s28">Монтаж экрана ГКЛ с облицовкой кафелем </label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s29" name="interest" value="s29">
+                        <label for="s29">Монтаж полочки ГКЛ с облицовкой (между ванной и стеной)</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s30" name="interest" value="s30">
+                        <label for="s30">Монтаж душевого экрана</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s31" name="interest" value="s31">
+                        <label for="s31">Монтаж душевой стойки</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s32" name="interest" value="s32">
+                        <label for="s32">Монтаж душевых створок</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s33" name="interest" value="s33">
+                        <label for="s33">Монтаж душевой панели</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s34" name="interest" value="s34">
+                        <label for="s34">Монтаж унитаза</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s35" name="interest" value="s35">
+                        <label for="s35">Монтаж инсталляции (без унитаза)</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s36" name="interest" value="s36">
+                        <label for="s36">Монтаж раковины</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s37" name="interest" value="s37">
+                        <label for="s37">Монтаж раковины с тумбой </label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s38" name="interest" value="s38">
+                        <label for="s38">Монтаж смесителя</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s39" name="interest" value="s39">
+                        <label for="s39">Монтаж смесителя с душ лейкой</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s40" name="interest" value="s40">
+                        <label for="s40">Демонтаж счётчика учёта воды</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s41" name="interest" value="s41">
+                        <label for="s41">Монтаж счётчика учёта воды</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s42" name="interest" value="s42">
+                        <label for="s42">Монтаж бойлера</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s43" name="interest" value="s43">
+                        <label for="s43">Монтаж гигиенического душа на готовую подводку</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s44" name="interest" value="s44">
+                        <label for="s44">Монтаж фанового насоса</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s45" name="interest" value="s45">
+                        <label for="s45">Демонтаж коллектора</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s46" name="interest" value="s46">
+                        <label for="s46">Монтаж коллектора</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s47" name="interest" value="s47">
+                        <label for="s47">Монтаж обратного клапана</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s48" name="interest" value="s48">
+                        <label for="s48">Монтаж крана отсечки</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s49" name="interest" value="s49">
+                        <label for="s49">Монтаж крана запорного</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s50" name="interest" value="s50">
+                        <label for="s50">Демонтаж   фильтра тон и гр  очистки</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s51" name="interest" value="s51">
+                        <label for="s51">Монтаж фильтра тонкой очистки</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s52" name="interest" value="s52">
+                        <label for="s52">Монтаж фильтра грубой очистки</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s53" name="interest" value="s53">
+                        <label for="s53">Монтаж/подключение стиральной машины</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s54" name="interest" value="s54">
+                        <label for="s54">Демонтаж, монтаж полотенцесушителя</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s55" name="interest" value="s55">
+                        <label for="s55">Покраска радиатора</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s56" name="interest" value="s56">
+                        <label for="s56">Шумоизоляция труб</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s57" name="interest" value="s57">
+                        <label for="s57">Покраска труб</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s58" name="interest" value="s58">
+                        <label for="s58">Монтаж  зеркала </label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="s59" name="interest" value="s59">
+                        <label for="s59">Монтаж мелкой сантехнической фурнитуры</label>
+                    </div>
+            
+                </div>
+            
+            </section>
+            
+            <section class="checkbox">
+                <p class="checkboxItem header">Электрика</p>
+            
+                <div id="checkboxes" onClick="counting()">
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e1" name="interest" value="e1">
+                        <label for="e1">Демонтаж бра</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e2" name="interest" value="e2">
+                        <label for="warmFloor">Демонтаж точечного светильника</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e3" name="interest" value="e3">
+                        <label for="e3">Демонтаж люстры</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e4" name="interest" value="e4">
+                        <label for="e4">Демонтаж эл.точки снять рамку (розетка,выключатель)</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e5" name="interest" value="e5">
+                        <label for="e5">Устройство гнезда подрозетника</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e6" name="interest" value="e6">
+                        <label for="e6">Монтаж розетки</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e7" name="interest" value="e7">
+                        <label for="e7">Монтаж выключателя</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e8" name="interest" value="e8">
+                        <label for="e8">Монтаж сетевой розетки на эл.плиту</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e9" name="interest" value="e9">
+                        <label for="e9">Монтаж силовой розетки</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e10" name="interest" value="e10">
+                        <label for="e10">Монтаж телефонной/ТВ розетки/Интернет</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e11" name="interest" value="e11">
+                        <label for="e11">Подключение и установка вытяжного вентилятора</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e12" name="interest" value="e12">
+                        <label for="e12">Монтаж бра</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e13" name="interest" value="e13">
+                        <label for="e13">Монтаж люстры</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e14" name="interest" value="e14">
+                        <label for="e14">Монтаж реостата тёплого пола</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e15" name="interest" value="e15">
+                        <label for="e15">Укладка нагревательного элемента тёплого пола</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e16" name="interest" value="e16">
+                        <label for="e16">Устройство гнезда под эл.щиток (в жб стене)</label>
+                    </div>
+            
+                    <h3>Монтаж щита (составляющие ниже):</h3>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e17" name="interest" value="e17">
+                        <label for="e17">Щит</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e18" name="interest" value="e18">
+                        <label for="e18">Монтаж автомата</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e19" name="interest" value="e19">
+                        <label for="e19">Монтаж дифавтомата или УЗО</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e20" name="interest" value="e20">
+                        <label for="e20">Монтаж счетчика</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e21" name="interest" value="e21">
+                        <label for="e21">Монтаж распределительной коробки</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e22" name="interest" value="e22">
+                        <label for="e22">Подключение трансформатора</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e23" name="interest" value="e23">
+                        <label for="e23">Монтаж светодиодной ленты</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e24" name="interest" value="e24">
+                        <label for="e24">Устройство точечного светильника</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e25" name="interest" value="e25">
+                        <label for="e25">Монтаж электрического полотенцесушителя</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e26" name="interest" value="e26">
+                        <label for="e26">Прокладка малоточки Телефон</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e27" name="interest" value="e27">
+                        <label for="e27">Прокладка малоточки TV Internet</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e28" name="interest" value="e28">
+                        <label for="e28">Устройство штробы (2см*2см)</label>
+                    </div>
+            
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e29" name="interest" value="e29">
+                        <label for="e29">Прокладка кабеля</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="e30" name="interest" value="e30">
+                        <label for="e30">Прокладка кабеля с монтажем кабель канала</label>
+                    </div>
+            
+                </div>
+            
+            </section>
+            
+            <section class="commonPrice">
+                <em class="total" id="total__count">0</em>
+                <p>Итоговая сумма, руб</p>
+            </section>
+        </div>
 
         <script type="text/javascript" src="slider.js"></script>
     </div>
